@@ -22,7 +22,7 @@ export default function MoneyDisplay() {
             sx={{
                 color: (balance < 0 ? 'red' : colors.lightGreen[600]),
             }}>
-            ${balance}
+            {balance < 0 ? '-' : ''}${Math.abs(balance)}
         </Typography>
     </Box>
   );

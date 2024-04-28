@@ -25,7 +25,7 @@ const Header = ({mode, toggleMode}: HeaderProps) => {
       }} >
         <Container>
             <Paper
-            elevation={4}
+            elevation={10}
             sx={(theme) => ({
                 display: 'flex',
                 alignItems: 'center',

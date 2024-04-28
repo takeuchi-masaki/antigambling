@@ -8,8 +8,8 @@ export default function BackgroundBox (props: any) {
         height: '100%',
         backgroundImage:
         theme.palette.mode === 'light'
-            ? 'linear-gradient(180deg, #E9C1FC, #FFF)'
-            : `linear-gradient(#E9C1FC, ${alpha('#090E10', 0.0)})`,       
+            ? '#FFF'
+            : 'linear-gradient(180deg, #E9C1FC, #670090)',       
         backgroundSize: '100% 100%',
         backgroundRepeat: 'no-repeat',
   })}>
