@@ -18,8 +18,8 @@ export default function App() {
             <CssBaseline />
             <Router>
                 <Routes>
-                    <Route path="/" element={<HomePage mode={mode} toggleMode={toggleColorMode} />} />
-                    <Route path="/mines" element={<MinePage mode={mode} toggleMode={toggleColorMode} /> } />
+                    <Route path="/antigambling/" element={<HomePage mode={mode} toggleMode={toggleColorMode} />} />
+                    <Route path="/antigambling/mines" element={<MinePage mode={mode} toggleMode={toggleColorMode} /> } />
                 </Routes>
             </Router>
         </ThemeProvider>

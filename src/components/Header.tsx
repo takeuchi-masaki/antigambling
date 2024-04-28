@@ -20,7 +20,7 @@ const Header = ({mode, toggleMode}: HeaderProps) => {
         navigate(path);
     }
 
-    let imgPath = mode === 'dark' ? '/twisted.png' : '/nottwisted.png';
+    let imgPath = mode === 'dark' ? '/antigambling/twisted.png' : '/antigambling/nottwisted.png';
 
     return <AppBar position="static" sx={{
         boxShadow: 0,
