@@ -1,12 +1,13 @@
 import React from "react";
 import { Stack, Typography } from "@mui/material";
 import Header from "../components/Header";
+import Mines from "../games/Mines"
  
-const Mines = () => {
+const MinePage = () => {
     return <Stack>
         <Header />
-        <Typography>Mines</Typography>
+        <Mines />
     </Stack>
 };
  
-export default Mines;
+export default MinePage;

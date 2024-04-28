@@ -1,8 +1,8 @@
 import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
-import Mines from "./pages/Mines";
+import HomePage from "./pages/HomePage";
+import MinePage from "./pages/MinePage";
 
 function App() {
   return (
@@ -10,8 +10,8 @@ function App() {
       <header className="App-header">
         <Router>
             <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/mines" element={<Mines /> } />
+                <Route path="/" element={<HomePage />} />
+                <Route path="/mines" element={<MinePage /> } />
             </Routes>
         </Router>
       </header>
