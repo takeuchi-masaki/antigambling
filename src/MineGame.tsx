@@ -4,35 +4,45 @@ import './MineGame.css';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Game, Square } from "./games/Games"
 
+async function sleep(ms: number): Promise<void> {
+  return new Promise(
+      (resolve) => setTimeout(resolve, ms));
+}
 
-function MineGame() {
+function MineGame(bombs: number) {
 
-  const newGame = (rows: number, cols: number) => {
-    const bombX = Math.floor(Math.random() * rows);
-    const bombY = Math.floor(Math.random() * cols);
+  const newGame = (rows: number, cols: number, bombs: number) => {
+    let s = new Set<number>;
+    while(s.size != bombs){
+      const bombX = Math.floor(Math.random() * rows);
+      const bombY = Math.floor(Math.random() * cols);
+      s.add(bombX * 5 + bombY);
+    }
+    
     let grid: Array<Array<Square>> = [];
     for(let i = 0; i < rows; i++){
         let arr: Array<Square> = [];
         for(let j = 0; j < cols; j++){
-            if(i === bombX && j === bombY){
-                arr.push(new Square(i, j, true, true));
-            }
-            else{
-                arr.push(new Square(i, j, true, false));
-            }
+          arr.push(new Square(i, j, true, false));
         }
         grid.push(arr);
     }
+    Array.from(s).forEach((i) =>{
+      grid[Math.floor(i/rows)][i % cols].isBomb = true;
+    })
     return grid;
   }
 
-  const [grid, setGrid] = useState<Game["grid"]>(newGame(5, 5));
+  const [grid, setGrid] = useState<Game["grid"]>(newGame(5, 5, bombs));
   const game = new Game(true, grid);
 
-  const reveal = (rowIdx: number,  colIdx: number) => {;
+  const reveal = (rowIdx: number,  colIdx: number) => {
     const newGrid: Game["grid"] = grid;
     newGrid[rowIdx][colIdx].hidden = false;
     setGrid([...newGrid]);
+    if(newGrid[rowIdx][colIdx].isBomb === true){
+      setTimeout(function() { alert("Game over!"); setGrid(newGame(5, 5, bombs)); }, 1000);
+    }
   }
 
   return (
