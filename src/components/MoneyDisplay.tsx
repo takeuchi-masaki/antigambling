@@ -1,4 +1,4 @@
-import { Typography, colors } from "@mui/material";
+import { Box, Typography, colors } from "@mui/material";
 
 let balance = 0;
 
@@ -8,12 +8,23 @@ export function updateBalance(delta: number) {
 
 export default function MoneyDisplay() {
   return (
-    <Typography 
-        variant="h5"
-        sx={{
-            color: (balance < 0 ? 'red' : colors.lightGreen[600]),
-        }}>
-        Balance: ${balance}
-    </Typography>
+    <Box>
+        <Typography 
+            variant="h5"
+            // textAlign={'center'}
+            sx={{
+                color: 'white'
+            }}>
+            Balance:
+        </Typography>
+        <Typography
+            variant="h5"
+            textAlign={'center'}
+            sx={{
+                color: (balance < 0 ? 'red' : colors.lightGreen[600]),
+            }}>
+            ${balance}
+        </Typography>
+    </Box>
   );
 }

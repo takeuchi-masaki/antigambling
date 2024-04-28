@@ -29,15 +29,14 @@ const Header = ({mode, toggleMode}: HeaderProps) => {
       }} >
         <Container>
             <Paper
-            elevation={3}
+            elevation={4}
             sx={(theme) => ({
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'space-between',
                 flexShrink: 0,
-                borderRadius: '99px',
+                borderRadius: '9px',
                 bgcolor: '#66008F',
-                maxHeight: 60,
                 border: '1px solid',
                 borderColor: 'divider',
                 padding: theme.spacing(3),
@@ -51,7 +50,6 @@ const Header = ({mode, toggleMode}: HeaderProps) => {
                     <DiamondIcon sx={{ color: 'white' }} />
                     <Typography variant="h5" color={'white'}>Mines</Typography>
                 </MenuItem>
-                <Divider></Divider>
                 <MoneyDisplay />
                 <ToggleModeButton mode={mode} toggleColorMode={toggleMode} />
             </Paper>
