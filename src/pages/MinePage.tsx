@@ -6,17 +6,17 @@ import MineDark from "../games/MineDark";
 import MineLight from "../games/MineLight";
 
 interface MinePageProps {
-    mode: PaletteMode,
-    toggleMode: () => void
+    mode: PaletteMode;
+    toggleMode: () => void;
+    balance: number;
+    updateBalance: (delta: number) => void;
 }
-
-const MinePage = ({mode, toggleMode}: MinePageProps) => {
+const MinePage = ({mode, toggleMode, balance, updateBalance}: MinePageProps) => {
     const isCasinoTheme = useTheme().palette.mode === 'dark';
-
     return <BackgroundBox>
         <Stack alignItems={'center'}>
-            <Header mode={mode} toggleMode={toggleMode} />
-            {isCasinoTheme ? <MineDark /> : <MineLight />}
+            <Header mode={mode} toggleMode={toggleMode} balance={balance} updateBalance={updateBalance} />
+            {isCasinoTheme ? <MineDark /> : <MineLight updateBalance={updateBalance}/>}
         </Stack>
     </BackgroundBox>
 };

@@ -1,29 +1,6 @@
 import React from "react";
 import { FormControl, Box, Stack, Typography, Button, InputLabel, Select, MenuItem, SelectChangeEvent } from "@mui/material";
-import { updateBalance } from "../components/MoneyDisplay";
-
-interface CenteredStackProps {
-    sz: number;
-    children: React.ReactNode;
-}
-function CenteredStack({sz, children}: CenteredStackProps) {
-    return <Stack
-            height={sz}
-            width={sz}
-            display={'flex'}
-            sx={{
-                bgcolor: 'primary.light',
-                borderRadius: 2,
-                boxShadow: 3,
-                p: 2,
-            }}
-            alignItems="center"
-            justifyContent="center"
-            spacing={5}
-        >
-            {children}
-    </Stack>
-}
+import CenteredStack from "../components/CenteredStack";
 
 function randomInt(max: number) {
     return Math.floor(Math.random() * (max + 1));
@@ -38,8 +15,9 @@ function settings({sz, setBombs, startGame}: settingsProps) {
     function handleBombSelect(event: SelectChangeEvent<number>) {
         setBombs(event.target.value as number);
     }
-    return <CenteredStack sz={sz}
+    return <CenteredStack height={sz} width={sz}
         >
+            <Typography variant="h5">Bet Cost: $5</Typography>
             <FormControl fullWidth>
                 <InputLabel>Number of Bombs</InputLabel>
                 <Select
@@ -61,19 +39,40 @@ function settings({sz, setBombs, startGame}: settingsProps) {
         </CenteredStack>
 }
 
-export default function MineSimple() {
+interface MineSimpleProps {
+    updateBalance: (delta: number) => void;
+}
+export default function MineSimple({updateBalance}: MineSimpleProps) {
     const sz = 550;
     const [gameOver, setGameOver] = React.useState(false);
     const [remainingSquares, setRemainingSquares] = React.useState(0);
     const [bombs, setBombs] = React.useState(0);
-
+    const [prevRolls, setPrevRolls] = React.useState<number[]>([]);
     function startGame() {
+        if (bombs === 0) return;
         setGameOver(false);
         setRemainingSquares(25);
+        updateBalance(-5);
+    }
+    function handleLose() {
+        setGameOver(true);
+    }
+    function handlePickSquare() {
+        if (gameOver) return;
+        const roll = randomInt(remainingSquares - 1);
+        setPrevRolls([...prevRolls, roll]);
+        if (roll < bombs) {
+            handleLose();
+        }
+    }
+    function handleEndGame() {
+        if (gameOver) return;
+        setGameOver(true);
+        updateBalance(prevRolls.length);
     }
 
     return <Stack direction={'row'} alignItems={'center'} padding={5} spacing={7}>
-        <CenteredStack sz={sz}>
+        <CenteredStack height={sz} width={sz}>
             <Typography variant="h5">
                 Bombs: {bombs} Remaining Squares: {remainingSquares}
             </Typography>
@@ -81,8 +80,17 @@ export default function MineSimple() {
                 variant="contained" 
                 color='secondary' 
                 size='large' 
+                onClick={handlePickSquare}
                 >
-                    button
+                    Pick a Random Square
+            </Button>
+            <Button 
+                variant="contained" 
+                color='secondary' 
+                size='large' 
+                onClick={handleEndGame}
+                >
+                    End Game
             </Button>
         </CenteredStack>
         {settings({sz, setBombs, startGame})}

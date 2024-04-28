@@ -12,14 +12,17 @@ export default function App() {
     const toggleColorMode = () => {
         setMode((prev) => (prev === 'dark' ? 'light' : 'dark'));
     };
-
+    const [balance, setBalance] = React.useState(0);
+    function updateBalance(delta: number) {
+        setBalance((prev) => prev + delta);
+    }
     return (
         <ThemeProvider theme={mode === 'light' ? lightTheme : casinoTheme}>
             <CssBaseline />
             <Router>
                 <Routes>
-                    <Route path="/antigambling/" element={<HomePage mode={mode} toggleMode={toggleColorMode} />} />
-                    <Route path="/antigambling/mines" element={<MinePage mode={mode} toggleMode={toggleColorMode} /> } />
+                    <Route path="/antigambling/" element={<HomePage mode={mode} toggleMode={toggleColorMode} balance={balance} updateBalance={updateBalance}/>} />
+                    <Route path="/antigambling/mines" element={<MinePage mode={mode} toggleMode={toggleColorMode} balance={balance} updateBalance={updateBalance}/> } />
                 </Routes>
             </Router>
         </ThemeProvider>

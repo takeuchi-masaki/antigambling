@@ -7,12 +7,14 @@ import Hero from "../components/Hero";
 interface HomePageProps {
     mode: PaletteMode;
     toggleMode: () => void;
+    balance: number;
+    updateBalance: (delta: number) => void;
 }
 
-const HomePage = ({mode, toggleMode}: HomePageProps) => {
+const HomePage = ({mode, toggleMode, balance, updateBalance}: HomePageProps) => {
     return <BackgroundBox>
         <Stack alignItems={'center'}>
-            <Header mode={mode} toggleMode={toggleMode} />
+            <Header mode={mode} toggleMode={toggleMode} balance={balance} updateBalance={updateBalance}/>
             <Hero />
         </Stack>
     </BackgroundBox>

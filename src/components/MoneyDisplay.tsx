@@ -1,12 +1,9 @@
 import { Box, Typography, colors } from "@mui/material";
 
-let balance = 0;
-
-export function updateBalance(delta: number) {
-    balance += delta;
+interface MoneyDisplayProps{
+    balance: number;
 }
-
-export default function MoneyDisplay() {
+export default function MoneyDisplay({balance}: MoneyDisplayProps) {
   return (
     <Box>
         <Typography 

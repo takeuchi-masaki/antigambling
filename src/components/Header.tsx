@@ -5,11 +5,13 @@ import { useNavigate } from "react-router-dom";
 import MoneyDisplay from "./MoneyDisplay";
 
 interface HeaderProps {
-    mode: PaletteMode,
-    toggleMode: () => void
+    mode: PaletteMode;
+    toggleMode: () => void;
+    balance: number;
+    updateBalance: (delta: number) => void;
 }
 
-const Header = ({mode, toggleMode}: HeaderProps) => {
+const Header = ({mode, toggleMode, balance, updateBalance}: HeaderProps) => {
     let navigate = useNavigate(); 
     const routeHome = () => {
         let path = `/antigambling/`; 
@@ -50,7 +52,7 @@ const Header = ({mode, toggleMode}: HeaderProps) => {
                     onClick={routeHome}
                 />
                 <Stack direction={'row'}>
-                <MoneyDisplay />
+                <MoneyDisplay balance={balance}/>
                 <ToggleModeButton mode={mode} toggleColorMode={toggleMode} />
                 </Stack>
             </Paper>
