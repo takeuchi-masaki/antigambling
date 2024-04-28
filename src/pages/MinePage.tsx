@@ -1,19 +1,22 @@
 import React from "react";
-import { Stack, PaletteMode } from "@mui/material";
+import { useTheme, Stack, PaletteMode } from "@mui/material";
 import Header from "../components/Header";
-import Mines from "../games/Mines"
 import BackgroundBox from "../components/BackgroundBox";
+import MineDark from "../games/MineDark";
+import MineLight from "../games/MineLight";
 
 interface MinePageProps {
     mode: PaletteMode,
     toggleMode: () => void
 }
- 
+
 const MinePage = ({mode, toggleMode}: MinePageProps) => {
+    const isCasinoTheme = useTheme().palette.mode === 'dark';
+
     return <BackgroundBox>
         <Stack alignItems={'center'}>
             <Header mode={mode} toggleMode={toggleMode} />
-            <Mines />
+            {isCasinoTheme ? <MineDark /> : <MineLight />}
         </Stack>
     </BackgroundBox>
 };
