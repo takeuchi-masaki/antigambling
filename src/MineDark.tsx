@@ -1,15 +1,10 @@
 import React from 'react';
 import { useState } from 'react';
-import './MineGame.css';
+import './MineDark.css';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { Game, Square } from "./games/Games"
+import { Game, Square } from "./games/mineUtil"
 
-async function sleep(ms: number): Promise<void> {
-  return new Promise(
-      (resolve) => setTimeout(resolve, ms));
-}
-
-function MineGame(bombs: number) {
+function MineDark(bombs: number) {
 
   const newGame = (rows: number, cols: number, bombs: number) => {
     let s = new Set<number>;
@@ -64,5 +59,5 @@ function MineGame(bombs: number) {
   )
 }
 
-export default MineGame;
+export default MineDark;
 
