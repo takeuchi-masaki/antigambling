@@ -22,7 +22,7 @@ export default function App() {
             <Router>
                 <Routes>
                     <Route path="/antigambling/" element={<HomePage mode={mode} toggleMode={toggleColorMode} balance={balance} updateBalance={updateBalance}/>} />
-                    <Route path="/antigambling/mines" element={<MinePage mode={mode} toggleMode={toggleColorMode} balance={balance} updateBalance={updateBalance}/> } />
+                    <Route path="/antigambling/mines/" element={<MinePage mode={mode} toggleMode={toggleColorMode} balance={balance} updateBalance={updateBalance}/> } />
                 </Routes>
             </Router>
         </ThemeProvider>
