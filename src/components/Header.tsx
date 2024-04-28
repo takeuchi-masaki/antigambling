@@ -21,6 +21,8 @@ const Header = ({mode, toggleMode}: HeaderProps) => {
         navigate(path);
     }
 
+    let imgPath = mode === 'dark' ? '/twisted.png' : '/nottwisted.png';
+
     return <AppBar position="static" sx={{
         boxShadow: 0,
         bgcolor: 'transparent',
@@ -44,20 +46,15 @@ const Header = ({mode, toggleMode}: HeaderProps) => {
                 height: 100,
               })}
               >
-                {mode === 'dark' ? (
-                    <Box
-                        component={'img'}
-                        src={'/twisted.png'}
-                        sx={{
-                            height: 65,
-                            width: 300,
+                <Box
+                    component={'img'}
+                    src={imgPath}
+                    sx={{
+                        height: 65,
+                        width: 300,
                     }}
-                    />
-                ) : (
-                    <MenuItem onClick={routeHome}>
-                        <Typography variant="h4" color={'white'}>Don't Get it Twisted</Typography>
-                    </MenuItem>
-                )}
+                    onClick={routeHome}
+                />
                 <MenuItem onClick={routeMines}>
                     <DiamondIcon sx={{ color: 'white' }} />
                     <Typography variant="h5" color={'white'}>Mines</Typography>
