@@ -1,6 +1,7 @@
 import React from "react";
-import { Paper, AppBar, Typography, PaletteMode, Box, Container } from "@mui/material";
+import { Paper, AppBar, Typography, PaletteMode, Container, MenuItem } from "@mui/material";
 import ToggleModeButton from "./ToggleModeButton";
+import { useNavigate } from "react-router-dom";
 
 interface HeaderProps {
     mode: PaletteMode,
@@ -8,6 +9,16 @@ interface HeaderProps {
 }
 
 const Header = ({mode, toggleMode}: HeaderProps) => {
+    let navigate = useNavigate(); 
+    const routeMines = () =>{ 
+        let path = `/mines`; 
+        navigate(path);
+    }
+    const routeHome = () => {
+        let path = `/`; 
+        navigate(path);
+    }
+
     return <AppBar position="static" sx={{
         boxShadow: 0,
         bgcolor: 'transparent',
@@ -15,7 +26,7 @@ const Header = ({mode, toggleMode}: HeaderProps) => {
         mt: 2,
       }} >
         <Container>
-            <Paper 
+            <Paper
             elevation={3}
             sx={(theme) => ({
                 display: 'flex',
@@ -28,11 +39,15 @@ const Header = ({mode, toggleMode}: HeaderProps) => {
                 border: '1px solid',
                 borderColor: 'divider',
                 padding: theme.spacing(3),
+                boxShadow: 3,
               })}
               >
-                <Box>
-                    <Typography variant="h3">Header Component</Typography>
-                </Box>
+                <MenuItem onClick={routeHome}>
+                    <Typography variant="h4" color={'white'}>Header Component</Typography>
+                </MenuItem>
+                <MenuItem onClick={routeMines}>
+                    <Typography variant="h5" color={'white'}>Mines</Typography>
+                </MenuItem>
                 <ToggleModeButton mode={mode} toggleColorMode={toggleMode} />
             </Paper>
         </Container>

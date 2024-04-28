@@ -6,7 +6,7 @@ interface HomePageProps {
     mode: PaletteMode;
     toggleMode: () => void;
 }
- 
+
 const HomePage = ({mode, toggleMode}: HomePageProps) => {
     return <Stack alignItems={'center'}>
         <Header mode={mode} toggleMode={toggleMode} />
