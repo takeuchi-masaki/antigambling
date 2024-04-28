@@ -3,7 +3,7 @@ import { PaletteMode } from '@mui/material';
 import Button from '@mui/material/Button';
 
 import WbSunnyRoundedIcon from '@mui/icons-material/WbSunnyRounded';
-import ThumbDownOffAltIcon from '@mui/icons-material/ThumbDownOffAlt';
+import ThumbDownAltIcon from '@mui/icons-material/ThumbDownAlt';
 import { lightTheme } from '../themes/LightTheme';
 
 interface ToggleProps {
@@ -22,7 +22,7 @@ export default function ToggleModeButton({ mode, toggleColorMode }: ToggleProps)
     {mode === 'dark' ? (
         <WbSunnyRoundedIcon fontSize="small" />
     ) : (
-        <ThumbDownOffAltIcon fontSize="small" />
+        <ThumbDownAltIcon fontSize="small" />
     )}
     </Button>
   );
