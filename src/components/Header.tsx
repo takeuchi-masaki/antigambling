@@ -1,5 +1,5 @@
 import React from "react";
-import { Paper, AppBar, Typography, PaletteMode, Container, MenuItem, Divider } from "@mui/material";
+import { Box, Paper, AppBar, Typography, PaletteMode, Container, MenuItem, } from "@mui/material";
 import ToggleModeButton from "./ToggleModeButton";
 import { useNavigate } from "react-router-dom";
 import DiamondIcon from '@mui/icons-material/Diamond';
@@ -41,11 +41,23 @@ const Header = ({mode, toggleMode}: HeaderProps) => {
                 borderColor: 'divider',
                 padding: theme.spacing(3),
                 boxShadow: 3,
+                height: 100,
               })}
               >
-                <MenuItem onClick={routeHome}>
-                    <Typography variant="h4" color={'white'}>Header Component</Typography>
-                </MenuItem>
+                {mode === 'dark' ? (
+                    <Box
+                        component={'img'}
+                        src={'/twisted.png'}
+                        sx={{
+                            height: 65,
+                            width: 300,
+                    }}
+                    />
+                ) : (
+                    <MenuItem onClick={routeHome}>
+                        <Typography variant="h4" color={'white'}>Don't Get it Twisted</Typography>
+                    </MenuItem>
+                )}
                 <MenuItem onClick={routeMines}>
                     <DiamondIcon sx={{ color: 'white' }} />
                     <Typography variant="h5" color={'white'}>Mines</Typography>
