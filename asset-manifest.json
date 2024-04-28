@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/antigambling/static/css/main.e6c13ad2.css",
-    "main.js": "/antigambling/static/js/main.fa68db11.js",
+    "main.css": "/antigambling/static/css/main.fceb50b9.css",
+    "main.js": "/antigambling/static/js/main.fe7ffcda.js",
     "static/js/453.bfac3c3b.chunk.js": "/antigambling/static/js/453.bfac3c3b.chunk.js",
     "index.html": "/antigambling/index.html",
-    "main.e6c13ad2.css.map": "/antigambling/static/css/main.e6c13ad2.css.map",
-    "main.fa68db11.js.map": "/antigambling/static/js/main.fa68db11.js.map",
+    "main.fceb50b9.css.map": "/antigambling/static/css/main.fceb50b9.css.map",
+    "main.fe7ffcda.js.map": "/antigambling/static/js/main.fe7ffcda.js.map",
     "453.bfac3c3b.chunk.js.map": "/antigambling/static/js/453.bfac3c3b.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.e6c13ad2.css",
-    "static/js/main.fa68db11.js"
+    "static/css/main.fceb50b9.css",
+    "static/js/main.fe7ffcda.js"
   ]
 }
