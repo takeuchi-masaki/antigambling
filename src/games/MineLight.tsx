@@ -1,5 +1,5 @@
 import React from "react";
-import { FormControl, Box, Stack, Typography, Button, InputLabel, Select, MenuItem, SelectChangeEvent } from "@mui/material";
+import { FormControl, Stack, Typography, Button, InputLabel, Select, MenuItem, SelectChangeEvent } from "@mui/material";
 import CenteredStack from "../components/CenteredStack";
 
 function randomInt(max: number) {
@@ -42,7 +42,7 @@ function settings({sz, setBombs, startGame}: settingsProps) {
 interface MineSimpleProps {
     updateBalance: (delta: number) => void;
 }
-export default function MineSimple({updateBalance}: MineSimpleProps) {
+export default function MineLight({updateBalance}: MineSimpleProps) {
     const sz = 550;
     const [gameOver, setGameOver] = React.useState(false);
     const [remainingSquares, setRemainingSquares] = React.useState(0);

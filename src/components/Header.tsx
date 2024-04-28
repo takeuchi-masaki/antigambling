@@ -10,14 +10,13 @@ interface HeaderProps {
     balance: number;
     updateBalance: (delta: number) => void;
 }
-
 const Header = ({mode, toggleMode, balance, updateBalance}: HeaderProps) => {
     let navigate = useNavigate(); 
     const routeHome = () => {
         let path = `/antigambling/`; 
         navigate(path);
     }
-    let imgPath = mode === 'dark' ? '/antigambling/twisted.png' : '/antigambling/nottwisted.png';
+    let imgPath = mode === 'dark' ? '/antigambling/img/twisted.png' : '/antigambling/img/nottwisted.png';
 
     return <AppBar position="static" sx={{
         boxShadow: 0,

@@ -14,9 +14,11 @@ interface MinePageProps {
 const MinePage = ({mode, toggleMode, balance, updateBalance}: MinePageProps) => {
     const isCasinoTheme = useTheme().palette.mode === 'dark';
     return <BackgroundBox>
-        <Stack alignItems={'center'}>
+        <Stack alignItems={'center'} spacing={3}>
             <Header mode={mode} toggleMode={toggleMode} balance={balance} updateBalance={updateBalance} />
-            {isCasinoTheme ? <MineDark /> : <MineLight updateBalance={updateBalance}/>}
+            {isCasinoTheme 
+                ? <MineDark updateBalance={updateBalance} /> 
+                : <MineLight updateBalance={updateBalance} />}
         </Stack>
     </BackgroundBox>
 };
