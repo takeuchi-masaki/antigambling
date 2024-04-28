@@ -11,15 +11,10 @@ interface HeaderProps {
 
 const Header = ({mode, toggleMode}: HeaderProps) => {
     let navigate = useNavigate(); 
-    const routeMines = () =>{ 
-        let path = `/mines`; 
-        navigate(path);
-    }
     const routeHome = () => {
-        let path = `/`; 
+        let path = `/antigambling/`; 
         navigate(path);
     }
-
     let imgPath = mode === 'dark' ? '/antigambling/twisted.png' : '/antigambling/nottwisted.png';
 
     return <AppBar position="static" sx={{

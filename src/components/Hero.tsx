@@ -1,13 +1,18 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
+import { useNavigate } from "react-router-dom";
 
 export default function Hero() {
-  return (
-    <Box
+    let navigate = useNavigate();
+    const routeMines = () =>{ 
+        let path = `/antigambling/mines`; 
+        navigate(path);
+    }
+
+    return <Box
       sx={(theme) => ({
         width: '100%',
       })}
@@ -54,19 +59,7 @@ export default function Hero() {
             tailored to your needs. Elevate your experience with top-tier features
             and services.
           </Typography>
-          <Stack
-            direction={{ xs: 'column', sm: 'row' }}
-            alignSelf="center"
-            spacing={1}
-            useFlexGap
-            sx={{ pt: 2, width: { xs: '100%', sm: 'auto' } }}
-          >
-            <Button variant="contained" color="primary">
-              Start now
-            </Button>
-          </Stack>
         </Stack>
       </Container>
     </Box>
-  );
 }
