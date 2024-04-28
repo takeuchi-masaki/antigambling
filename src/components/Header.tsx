@@ -1,8 +1,7 @@
 import React from "react";
-import { Box, Paper, AppBar, Typography, PaletteMode, Container, MenuItem, } from "@mui/material";
+import { Box, Paper, AppBar, Stack, PaletteMode, Container, } from "@mui/material";
 import ToggleModeButton from "./ToggleModeButton";
 import { useNavigate } from "react-router-dom";
-import DiamondIcon from '@mui/icons-material/Diamond';
 import MoneyDisplay from "./MoneyDisplay";
 
 interface HeaderProps {
@@ -55,12 +54,10 @@ const Header = ({mode, toggleMode}: HeaderProps) => {
                     }}
                     onClick={routeHome}
                 />
-                <MenuItem onClick={routeMines}>
-                    <DiamondIcon sx={{ color: 'white' }} />
-                    <Typography variant="h5" color={'white'}>Mines</Typography>
-                </MenuItem>
+                <Stack direction={'row'}>
                 <MoneyDisplay />
                 <ToggleModeButton mode={mode} toggleColorMode={toggleMode} />
+                </Stack>
             </Paper>
         </Container>
     </AppBar>

@@ -20,9 +20,9 @@ export default function ToggleModeButton({ mode, toggleColorMode }: ToggleProps)
     sx={{ color: lightTheme.palette.secondary.main }}
     >
     {mode === 'dark' ? (
-        <WbSunnyRoundedIcon fontSize="small" />
+        <WbSunnyRoundedIcon />
     ) : (
-        <ThumbDownAltIcon fontSize="small" />
+        <ThumbDownAltIcon />
     )}
     </Button>
   );

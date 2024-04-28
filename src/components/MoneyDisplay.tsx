@@ -11,7 +11,6 @@ export default function MoneyDisplay() {
     <Box>
         <Typography 
             variant="h5"
-            // textAlign={'center'}
             sx={{
                 color: 'white'
             }}>
