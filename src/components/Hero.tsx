@@ -8,7 +8,6 @@ import Typography from '@mui/material/Typography';
 export default function Hero() {
   return (
     <Box
-      id="hero"
       sx={(theme) => ({
         width: '100%',
       })}
