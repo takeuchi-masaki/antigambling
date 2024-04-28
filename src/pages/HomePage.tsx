@@ -1,11 +1,16 @@
 import React from "react";
-import { Stack, Typography } from "@mui/material";
+import { Stack, Typography, PaletteMode } from "@mui/material";
 import Header from "../components/Header";
+
+interface HomePageProps {
+    mode: PaletteMode;
+    toggleMode: () => void;
+}
  
-const HomePage = () => {
-    return <Stack>
-        <Header />
-        <Typography>Home page</Typography>
+const HomePage = ({mode, toggleMode}: HomePageProps) => {
+    return <Stack alignItems={'center'}>
+        <Header mode={mode} toggleMode={toggleMode} />
+        <Typography variant="h1">Home page</Typography>
     </Stack>
 };
 
